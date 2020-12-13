@@ -1,16 +1,16 @@
 # chuck_norris
 
-A new Flutter project.
+Flutter Chuck Norris App (with Chuck norris open API + Clean Architecture) this app follow clean architecture proposed by our friendly Uncle Bob.
 
-## Getting Started
+### # The Clean Architecture [proposed by our friendly Uncle Bob](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-This project is a starting point for a Flutter application.
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/10207753/93004894-e8d48d00-f564-11ea-9f34-8614c783e98a.jpg" height="400" /> 
+    <p/>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+##### Todo List
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* SearchByText
+* FilterByCategory
+* Implement UI Layer
