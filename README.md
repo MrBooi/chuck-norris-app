@@ -8,6 +8,7 @@ Flutter Chuck Norris App (with Chuck norris open API + Clean Architecture) this 
   <img src="https://user-images.githubusercontent.com/10207753/93004894-e8d48d00-f564-11ea-9f34-8614c783e98a.jpg" height="400" /> 
     <p/>
 
+[chuck_norris_api_endpoint :](https://api.chucknorris.io/)
 
 ##### Todo List
 
