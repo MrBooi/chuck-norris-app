@@ -22,7 +22,7 @@ void main() {
       when(mockDataConnectionChecker.hasConnection)
           .thenAnswer((realInvocation) => tHasConnection);
       // act
-      final result = networkInfo.isconnected;
+      final result = networkInfo.isConnected;
       // assert
       verify(mockDataConnectionChecker.hasConnection);
       expect(result, tHasConnection);
