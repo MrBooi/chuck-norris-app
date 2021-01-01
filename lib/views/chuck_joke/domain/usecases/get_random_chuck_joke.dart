@@ -8,6 +8,7 @@ class GetRandomChuckJokeUsecase implements UseCase<ChuckJoke, NoParams> {
   final ChuckJokeRepository repository;
 
   GetRandomChuckJokeUsecase(this.repository);
+
   @override
   Future<Either<Failure, ChuckJoke>> call(NoParams params) async {
     return await repository.getRandomChuckJoke();
