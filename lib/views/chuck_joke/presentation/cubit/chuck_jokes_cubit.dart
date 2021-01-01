@@ -8,7 +8,7 @@ class ChuckJokesCubit extends Cubit<ChuckJokesState> {
   GetRandomChuckJokeUsecase getRandomChuckJokeUsecase;
 
   ChuckJokesCubit({
-    @required random,
+    @required GetRandomChuckJokeUsecase random,
   })  : getRandomChuckJokeUsecase = random,
         super(ChuckJokesState.empty());
 
