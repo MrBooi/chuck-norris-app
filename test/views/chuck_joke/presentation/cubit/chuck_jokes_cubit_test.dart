@@ -2,6 +2,7 @@ import 'package:chuck_norris/core/error/failure.dart';
 import 'package:chuck_norris/core/usecases/usecase.dart';
 import 'package:chuck_norris/views/chuck_joke/domain/entities/chuck_joke.dart';
 import 'package:chuck_norris/views/chuck_joke/domain/usecases/get_random_chuck_joke.dart';
+import 'package:chuck_norris/views/chuck_joke/domain/usecases/get_random_chuck_joke_by_text.dart';
 import 'package:chuck_norris/views/chuck_joke/presentation/cubit/cubit.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,14 +11,20 @@ import 'package:mockito/mockito.dart';
 class MockGetRandomChuckJoke extends Mock implements GetRandomChuckJokeUsecase {
 }
 
+class MockGetRandomChuckJokeByText extends Mock
+    implements GetRandomChuckJokeByCategoryUsecase {}
+
 void main() {
   ChuckJokesCubit cubit;
   MockGetRandomChuckJoke mockGetRandomChuckJoke;
+  MockGetRandomChuckJokeByText mockGetRandomChuckJokeByText;
 
   setUp(() {
     mockGetRandomChuckJoke = MockGetRandomChuckJoke();
+    mockGetRandomChuckJokeByText = MockGetRandomChuckJokeByText();
     cubit = ChuckJokesCubit(
       random: mockGetRandomChuckJoke,
+      categoryText: mockGetRandomChuckJokeByText,
     );
   });
 

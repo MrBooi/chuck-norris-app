@@ -10,6 +10,11 @@ abstract class ChuckJokeRemoteDatasource {
   ///
   /// Throws a [ServerException] for all error codes.
   Future<ChuckJoke> getRandomChuckJoke();
+
+  /// Calls the https://api.chucknorris.io/jokes/random?category={category}endpoint.
+  ///
+  /// Throws a [ServerException] for all error codes.
+  Future<ChuckJoke> getRandomChuckCategoryByCategoryText(String query);
 }
 
 class ChuckJokeRemoteDatasourceImpl implements ChuckJokeRemoteDatasource {
@@ -28,6 +33,23 @@ class ChuckJokeRemoteDatasourceImpl implements ChuckJokeRemoteDatasource {
     if (response.statusCode == 200) {
       return ChuckJoke.fromJson(
           json.decode(response.body) as Map<String, dynamic>);
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<ChuckJoke> getRandomChuckCategoryByCategoryText(String query) async {
+    final url = "https://api.chucknorris.io/jokes/search?query=$query";
+
+    final response = await client.get(url, headers: {
+      'content-Type': 'application/json',
+    });
+
+    if (response.statusCode == 200) {
+      return ChuckJoke.fromJson(
+        json.decode(response.body),
+      );
     } else {
       throw ServerException();
     }

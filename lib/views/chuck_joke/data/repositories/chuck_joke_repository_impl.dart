@@ -26,4 +26,17 @@ class ChuckJokeRespositoryImpl implements ChuckJokeRepository {
       return const Left(ServerFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, ChuckJoke>> getRandomChuckJokeByCatergory(
+      String category) async {
+    if (!await networkInfo.isConnected) return Left(ServerFailure());
+    try {
+      final response =
+          await remoteDataSource.getRandomChuckCategoryByCategoryText(category);
+      return Right(response);
+    } on ServerException {
+      return const Left(ServerFailure());
+    }
+  }
 }

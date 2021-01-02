@@ -5,7 +5,6 @@ import 'package:chuck_norris/views/chuck_category/domain/entities/chuck_categori
 import 'package:chuck_norris/core/error/failure.dart';
 import 'package:chuck_norris/views/chuck_category/domain/repositories/chuck_categories_repositories.dart';
 import 'package:dartz/dartz.dart';
-import 'package:chuck_norris/views/chuck_joke/domain/entities/chuck_joke.dart';
 
 class ChuckcategorieRepositoryImpl implements ChuckcategorieRepository {
   final ChuckcategorieRemoteDatasource remoteDataSource;
@@ -17,19 +16,6 @@ class ChuckcategorieRepositoryImpl implements ChuckcategorieRepository {
     if (!await networkInfo.isConnected) return Left(ServerFailure());
     try {
       final response = await remoteDataSource.getChuckCategories();
-      return Right(response);
-    } on ServerException {
-      return const Left(ServerFailure());
-    }
-  }
-
-  @override
-  Future<Either<Failure, ChuckJoke>> getRandomChuckJokeByCatergory(
-      String category) async {
-    if (!await networkInfo.isConnected) return Left(ServerFailure());
-    try {
-      final response =
-          await remoteDataSource.getRandomChuckCategoryByCategoryText(category);
       return Right(response);
     } on ServerException {
       return const Left(ServerFailure());
