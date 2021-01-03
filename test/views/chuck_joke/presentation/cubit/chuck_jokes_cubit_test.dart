@@ -75,4 +75,48 @@ void main() {
       await cubit.getChuckRandomJoke();
     });
   });
+
+  group("getRandomJokeByCategory", () {
+    final tchuckJoke = ChuckJoke(value: "joke", url: 'url');
+    const tCategoryText = "animal";
+
+    test('Should get data from the random use case', () async {
+      // arrange
+      when(mockGetRandomChuckJokeByText(any))
+          .thenAnswer((_) async => Right(tchuckJoke));
+      // act
+      await cubit.getChuckRandomJokebyCategory(tCategoryText);
+      await untilCalled(mockGetRandomChuckJokeByText(any));
+      // assert
+      verify(
+        mockGetRandomChuckJokeByText(RandomTextParams(tCategoryText)),
+      );
+    });
+
+    test('Should emit [loading, loaded] when data is gotten successfully',
+        () async {
+      // arrange
+      when(mockGetRandomChuckJokeByText(any))
+          .thenAnswer((_) async => Right(tchuckJoke));
+      // assert later
+      final expected = [const Loading(), Loaded(chuckJoke: tchuckJoke)];
+      expectLater(cubit, emitsInOrder(expected));
+      await cubit.getChuckRandomJokebyCategory(tCategoryText);
+    });
+
+    test('Should emit [loading, ServerFailure] when data is getting data fails',
+        () async {
+      // arrange
+      when(mockGetRandomChuckJokeByText(any)).thenAnswer(
+        (_) async => const Left(ServerFailure()),
+      );
+      // assert later
+      final expected = [
+        const Loading(),
+        const Error(failure: ServerFailure()),
+      ];
+      expectLater(cubit, emitsInOrder(expected));
+      await cubit.getChuckRandomJokebyCategory(tCategoryText);
+    });
+  });
 }
