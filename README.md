@@ -15,3 +15,6 @@ Flutter Chuck Norris App (with Chuck norris open API + Clean Architecture) this 
 * SearchByText
 * FilterByCategory
 * Implement UI Layer
+* Widget Testing
+* Unit Testing
+* Intergation Testing
