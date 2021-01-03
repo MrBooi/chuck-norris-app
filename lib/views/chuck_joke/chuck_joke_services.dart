@@ -5,7 +5,7 @@ import 'package:chuck_norris/views/chuck_joke/domain/usecases/get_random_chuck_j
 import 'package:chuck_norris/views/chuck_joke/domain/usecases/get_random_chuck_joke_by_text.dart';
 import 'package:chuck_norris/views/chuck_joke/presentation/cubit/chuck_jokes_cubit.dart';
 
-import '../../../injection_container.dart';
+import '../../injection_container.dart';
 
 void chuckJokeServices() {
   // cubit

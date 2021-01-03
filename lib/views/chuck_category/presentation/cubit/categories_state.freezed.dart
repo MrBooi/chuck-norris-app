@@ -14,11 +14,6 @@ class _$CategoriesStateTearOff {
   const _$CategoriesStateTearOff();
 
 // ignore: unused_element
-  Empty empty() {
-    return const Empty();
-  }
-
-// ignore: unused_element
   Loading loading() {
     return const Loading();
   }
@@ -46,14 +41,12 @@ const $CategoriesState = _$CategoriesStateTearOff();
 mixin _$CategoriesState {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result empty(),
     @required Result loading(),
     @required Result loaded(ChuckCategories chuckCategories),
     @required Result error(Failure failure),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result empty(),
     Result loading(),
     Result loaded(ChuckCategories chuckCategories),
     Result error(Failure failure),
@@ -61,14 +54,12 @@ mixin _$CategoriesState {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result empty(Empty value),
     @required Result loading(Loading value),
     @required Result loaded(Loaded value),
     @required Result error(Error value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result empty(Empty value),
     Result loading(Loading value),
     Result loaded(Loaded value),
     Result error(Error value),
@@ -91,106 +82,6 @@ class _$CategoriesStateCopyWithImpl<$Res>
   final CategoriesState _value;
   // ignore: unused_field
   final $Res Function(CategoriesState) _then;
-}
-
-/// @nodoc
-abstract class $EmptyCopyWith<$Res> {
-  factory $EmptyCopyWith(Empty value, $Res Function(Empty) then) =
-      _$EmptyCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$EmptyCopyWithImpl<$Res> extends _$CategoriesStateCopyWithImpl<$Res>
-    implements $EmptyCopyWith<$Res> {
-  _$EmptyCopyWithImpl(Empty _value, $Res Function(Empty) _then)
-      : super(_value, (v) => _then(v as Empty));
-
-  @override
-  Empty get _value => super._value as Empty;
-}
-
-/// @nodoc
-class _$Empty implements Empty {
-  const _$Empty();
-
-  @override
-  String toString() {
-    return 'CategoriesState.empty()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Empty);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loading(),
-    @required Result loaded(ChuckCategories chuckCategories),
-    @required Result error(Failure failure),
-  }) {
-    assert(empty != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
-    return empty();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loading(),
-    Result loaded(ChuckCategories chuckCategories),
-    Result error(Failure failure),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (empty != null) {
-      return empty();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(Empty value),
-    @required Result loading(Loading value),
-    @required Result loaded(Loaded value),
-    @required Result error(Error value),
-  }) {
-    assert(empty != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
-    return empty(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(Empty value),
-    Result loading(Loading value),
-    Result loaded(Loaded value),
-    Result error(Error value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (empty != null) {
-      return empty(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Empty implements CategoriesState {
-  const factory Empty() = _$Empty;
 }
 
 /// @nodoc
@@ -229,12 +120,10 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result empty(),
     @required Result loading(),
     @required Result loaded(ChuckCategories chuckCategories),
     @required Result error(Failure failure),
   }) {
-    assert(empty != null);
     assert(loading != null);
     assert(loaded != null);
     assert(error != null);
@@ -244,7 +133,6 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result empty(),
     Result loading(),
     Result loaded(ChuckCategories chuckCategories),
     Result error(Failure failure),
@@ -260,12 +148,10 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result empty(Empty value),
     @required Result loading(Loading value),
     @required Result loaded(Loaded value),
     @required Result error(Error value),
   }) {
-    assert(empty != null);
     assert(loading != null);
     assert(loaded != null);
     assert(error != null);
@@ -275,7 +161,6 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result empty(Empty value),
     Result loading(Loading value),
     Result loaded(Loaded value),
     Result error(Error value),
@@ -367,12 +252,10 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result empty(),
     @required Result loading(),
     @required Result loaded(ChuckCategories chuckCategories),
     @required Result error(Failure failure),
   }) {
-    assert(empty != null);
     assert(loading != null);
     assert(loaded != null);
     assert(error != null);
@@ -382,7 +265,6 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result empty(),
     Result loading(),
     Result loaded(ChuckCategories chuckCategories),
     Result error(Failure failure),
@@ -398,12 +280,10 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result empty(Empty value),
     @required Result loading(Loading value),
     @required Result loaded(Loaded value),
     @required Result error(Error value),
   }) {
-    assert(empty != null);
     assert(loading != null);
     assert(loaded != null);
     assert(error != null);
@@ -413,7 +293,6 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result empty(Empty value),
     Result loading(Loading value),
     Result loaded(Loaded value),
     Result error(Error value),
@@ -503,12 +382,10 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result empty(),
     @required Result loading(),
     @required Result loaded(ChuckCategories chuckCategories),
     @required Result error(Failure failure),
   }) {
-    assert(empty != null);
     assert(loading != null);
     assert(loaded != null);
     assert(error != null);
@@ -518,7 +395,6 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result empty(),
     Result loading(),
     Result loaded(ChuckCategories chuckCategories),
     Result error(Failure failure),
@@ -534,12 +410,10 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result empty(Empty value),
     @required Result loading(Loading value),
     @required Result loaded(Loaded value),
     @required Result error(Error value),
   }) {
-    assert(empty != null);
     assert(loading != null);
     assert(loaded != null);
     assert(error != null);
@@ -549,7 +423,6 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result empty(Empty value),
     Result loading(Loading value),
     Result loaded(Loaded value),
     Result error(Error value),

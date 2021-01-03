@@ -8,21 +8,21 @@ class ChuckJokeDisplay extends StatelessWidget {
   const ChuckJokeDisplay({Key key, @required this.joke}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    print(joke.url);
     return Container(
       height: MediaQuery.of(context).size.height / 3,
       child: Column(
         children: [
           CachedNetworkImage(
             height: 80.0,
-            imageUrl: joke.url.isEmpty
-                ? joke.url
-                : "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+            imageUrl:
+                "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
           ),
           Expanded(
             child: Center(
               child: SingleChildScrollView(
                 child: Text(
-                  joke.value,
+                  joke.value ?? "",
                   style: const TextStyle(fontSize: 25),
                   textAlign: TextAlign.center,
                 ),

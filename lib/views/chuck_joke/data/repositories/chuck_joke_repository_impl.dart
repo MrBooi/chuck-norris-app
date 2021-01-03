@@ -34,6 +34,7 @@ class ChuckJokeRespositoryImpl implements ChuckJokeRepository {
     try {
       final response =
           await remoteDataSource.getRandomChuckCategoryByCategoryText(category);
+
       return Right(response);
     } on ServerException {
       return const Left(ServerFailure());

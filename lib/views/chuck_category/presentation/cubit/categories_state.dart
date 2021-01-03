@@ -6,7 +6,6 @@ part 'categories_state.freezed.dart';
 
 @freezed
 abstract class CategoriesState with _$CategoriesState {
-  const factory CategoriesState.empty() = Empty;
   const factory CategoriesState.loading() = Loading;
   const factory CategoriesState.loaded(
       {@required ChuckCategories chuckCategories}) = Loaded;

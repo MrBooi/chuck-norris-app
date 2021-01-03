@@ -40,7 +40,7 @@ class ChuckJokeRemoteDatasourceImpl implements ChuckJokeRemoteDatasource {
 
   @override
   Future<ChuckJoke> getRandomChuckCategoryByCategoryText(String query) async {
-    final url = "https://api.chucknorris.io/jokes/search?query=$query";
+    final url = "https://api.chucknorris.io/jokes/random?category=$query";
 
     final response = await client.get(url, headers: {
       'content-Type': 'application/json',

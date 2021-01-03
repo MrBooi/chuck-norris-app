@@ -26,10 +26,10 @@ class ChuckcategorieRemoteDatasourceImpl
       'content-Type': 'application/json',
     });
 
+    final data = {"categories": json.decode(response.body)};
+
     if (response.statusCode == 200) {
-      return ChuckCategories.fromJson(
-        json.decode(response.body),
-      );
+      return ChuckCategories.fromJson(data);
     } else {
       throw ServerException();
     }
