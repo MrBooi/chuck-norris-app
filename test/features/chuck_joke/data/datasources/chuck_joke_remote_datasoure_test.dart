@@ -33,6 +33,51 @@ void main() {
     );
   }
 
+  group('getRandomJokeByCategory', () {
+    const String tCategoryText = " animal";
+    final jsonMapDecode =
+        json.decode(fixture('category_joke.json')) as Map<String, dynamic>;
+    final tChuckModel = ChuckJoke.fromJson(jsonMapDecode);
+    test(
+        '''should perform a GET request on a URL with the number being the endpoint and with application/json header''',
+        () {
+      // arrange
+      setUpMockHttpClientSuccess200();
+      // act
+      dataSource.getRandomChuckCategoryByCategoryText(tCategoryText);
+      // assert
+      verify(
+        mockHttpClient.get(
+          'https://api.chucknorris.io/jokes/random?category=$tCategoryText',
+          headers: {
+            'content-Type': 'application/json',
+          },
+        ),
+      );
+    });
+
+    test('should return ChuckJoke when the response code is 200 (success)',
+        () async {
+      // arrange
+      setUpMockHttpClientSuccess200();
+      // act
+      final result =
+          await dataSource.getRandomChuckCategoryByCategoryText(tCategoryText);
+      // assert
+      expect(result, equals(tChuckModel));
+    });
+
+    test('should throw ServerException when the response code is 404 or other',
+        () async {
+      // arrange
+      setUpMockHttpClientFailure404();
+      // act
+      final call = dataSource.getRandomChuckJoke;
+      // assert
+      expect(() => call(), throwsA(isInstanceOf<ServerException>()));
+    });
+  });
+
   group('getRandomChuckJoke', () {
     final jsonMapDecode =
         json.decode(fixture('joke.json')) as Map<String, dynamic>;

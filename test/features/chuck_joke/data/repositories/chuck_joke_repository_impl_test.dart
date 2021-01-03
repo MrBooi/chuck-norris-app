@@ -77,4 +77,50 @@ void main() {
       });
     });
   });
+
+  group('getRandomJokeByCategory', () {
+    final tChuckJokeModel = ChuckJoke(value: 'JOKE ', url: '');
+    const String tCategoryText = " animal";
+
+    test('should check if the device is online', () {
+      // arrange
+      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+      // act
+      respository.getRandomChuckJokeByCatergory(tCategoryText);
+      // assert
+      verify(mockNetworkInfo.isConnected);
+    });
+
+    runTestsOnline(() {
+      test(
+          'should return remote data when the call to remote data source is succefully ',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getRandomChuckCategoryByCategoryText(any))
+            .thenAnswer((_) async => tChuckJokeModel);
+        // act
+        await respository.getRandomChuckJokeByCatergory(tCategoryText);
+        // assert
+        verify(mockRemoteDataSource
+            .getRandomChuckCategoryByCategoryText(tCategoryText));
+      });
+
+      test(
+          'should return server failure when the call to remote data source is unsuccefully ',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getRandomChuckCategoryByCategoryText(any))
+            .thenThrow(ServerException());
+        // act
+        final result =
+            await respository.getRandomChuckJokeByCatergory(tCategoryText);
+        // assert
+        verify(mockRemoteDataSource
+            .getRandomChuckCategoryByCategoryText(tCategoryText));
+
+        expect(result,
+            equals(const Left<ServerFailure, dynamic>(ServerFailure())));
+      });
+    });
+  });
 }
